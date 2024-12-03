@@ -12,16 +12,16 @@ class Location extends Model
 
     public function city(): BelongsTo
     {
-        return $this->belongsTo(City::class, 'city_id');
+        return $this->belongsTo(City::class);
     }
 
     public function village(): BelongsTo
     {
-        return $this->belongsTo(Village::class, 'village_id');
+        return $this->belongsTo(Village::class);
     }
 
     public function userLocations(): HasMany
     {
-        return $this->hasMany(UserLocation::class, 'location_id');
+        return $this->hasMany(UserLocation::class);
     }
 }

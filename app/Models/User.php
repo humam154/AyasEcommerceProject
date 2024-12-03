@@ -70,4 +70,24 @@ class User extends Authenticatable
     {
         return $this->hasMany(Point::class, 'user_id');
     }
+
+    public function adverts(): HasMany
+    {
+        return $this->hasMany(Advert::class, 'user_id');
+    }
+
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class, 'user_id');
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function commentLikes(): HasMany
+    {
+        return $this->hasMany(CommentLike::class);
+    }
 }

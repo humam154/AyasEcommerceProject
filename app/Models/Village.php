@@ -17,6 +17,6 @@ class Village extends Model
 
     public function locations(): HasMany
     {
-        return $this->hasMany(Location::class, 'village_id');
+        return $this->hasMany(Location::class);
     }
 }
