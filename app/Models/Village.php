@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Village extends Model
 {
@@ -15,8 +14,8 @@ class Village extends Model
         return $this->belongsTo(City::class);
     }
 
-    public function locations(): HasMany
+    public function locations(): BelongsTo
     {
-        return $this->hasMany(Location::class);
+        return $this->belongsTo(Location::class);
     }
 }

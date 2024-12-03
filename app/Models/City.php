@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class City extends Model
 {
@@ -14,8 +15,8 @@ class City extends Model
         return $this->hasMany(Village::class);
     }
 
-    public function locations(): HasMany
+    public function locations(): HasOne
     {
-        return $this->hasMany(Location::class);
+        return $this->hasOne(Location::class);
     }
 }

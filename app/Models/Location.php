@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Location extends Model
 {
@@ -15,9 +16,9 @@ class Location extends Model
         return $this->belongsTo(City::class);
     }
 
-    public function village(): BelongsTo
+    public function village(): HasOne
     {
-        return $this->belongsTo(Village::class);
+        return $this->hasOne(Village::class);
     }
 
     public function userLocations(): HasMany

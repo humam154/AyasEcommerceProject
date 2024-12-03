@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Advert extends Model
+class Report extends Model
 {
     protected $guarded = [];
 
@@ -16,8 +15,8 @@ class Advert extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function advertType(): HasOne
+    public function replies(): HasMany
     {
-        return $this->hasOne(AdvertType::class);
+        return $this->hasMany(Report::class);
     }
 }
