@@ -6,6 +6,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -38,7 +39,7 @@ class RolesPermissionsSeeder extends Seeder
             'first_name' => 'admin',
             'last_name' => 'admin',
             'phone' => '0949623988',
-            'password' => bcrypt('password'),
+            'password' => Hash::make('password'),
             'gender' => 'M',
             'birth_date' => Carbon::now(),
         ]);
@@ -52,7 +53,7 @@ class RolesPermissionsSeeder extends Seeder
             'first_name' => 'moderator',
             'last_name' => 'moderator',
             'phone' => '0930610494',
-            'password' => bcrypt('password'),
+            'password' => Hash::make('password'),
             'gender' => 'M',
             'birth_date' => Carbon::now(),
         ]);
@@ -66,7 +67,7 @@ class RolesPermissionsSeeder extends Seeder
             'first_name' => 'user',
             'last_name' => 'user',
             'phone' => '0967667180',
-            'password' => bcrypt('password'),
+            'password' => Hash::make('password'),
             'gender' => 'M',
             'birth_date' => Carbon::now(),
         ]);

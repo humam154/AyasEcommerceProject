@@ -3,14 +3,14 @@
 namespace App\Services;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
 class UserService
 {
 
-    public function userRegister($request): array
+    public function register($request): array
     {
 
         if (!is_null($request)) {
@@ -60,6 +60,71 @@ class UserService
         return ['user' => $user, 'message' => $message, 'code' => $code];
     }
 
+    public function login($request): array
+    {
+        $user = User::query()->where('phone', $request['phone'])->first();
+        if(!is_null($user)) {
+            if(!Auth::attempt($request->only(['phone', 'password']))) {
+                $user = [];
+                $message = 'phone or password is wrong';
+                $code = 401;
+            }
+            else {
+                $user = $this->appendRolesAndPermissions($user);
+                $user['token'] = $user->createToken("Access Token")->plainTextToken;
+                $message = 'user logged in successfully';
+                $code = 200;
+            }
+        }
+        else {
+            $message = 'user not found';
+            $code = 404;
+        }
+        return ['user' => $user, 'message' => $message, 'code' => $code];
+    }
+
+    public function logout(): array
+    {
+        $user = Auth::user();
+
+        if(!is_null($user)) {
+            $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
+            $message = 'user logged out successfully';
+            $code = 200;
+        }
+        else {
+            $message = 'invalid token';
+            $code = 401;
+        }
+
+        return ['user' => $user, 'message' => $message, 'code' => $code];
+    }
+
+    public function changePassword($request): array
+    {
+        $user = Auth::user();
+
+        if(!is_null($user)) {
+            if(!Hash::check($request['current_password'], $user['password'])) {
+                $message = 'password is incorrect';
+                $code = 401;
+            }
+            else {
+                $user['password'] = Hash::make($request['password']);
+                $user->save();
+
+                $message = 'password updated successfully';
+                $code = 200;
+            }
+        }
+        else {
+            $user = [];
+            $message = 'user not found';
+            $code = 404;
+        }
+
+        return ['user' => $user, 'message' => $message, 'code' => $code];
+    }
     private function appendRolesAndPermissions($user){
         $roles = [];
 
