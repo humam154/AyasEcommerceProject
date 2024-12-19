@@ -18,7 +18,7 @@ class RolesPermissionsSeeder extends Seeder
     {
         $adminRole = Role::create(['name' => 'admin']);
         $moderatorRole = Role::create(['name' => 'moderator']);
-        $userRole = Role::create(['name' => 'user']);
+        $clientRole = Role::create(['name' => 'client']);
 
         $permissions = [
             'all.all'
@@ -30,7 +30,7 @@ class RolesPermissionsSeeder extends Seeder
 
         $moderatorRole->givePermissionTo('all.all');
 
-        $userRole->givePermissionTo('all.all');
+        $clientRole->givePermissionTo('all.all');
 
         $adminRole->syncPermissions($permissions);
 
@@ -41,7 +41,6 @@ class RolesPermissionsSeeder extends Seeder
             'password' => bcrypt('password'),
             'gender' => 'M',
             'birth_date' => Carbon::now(),
-            'available_ads' => false
         ]);
 
         $admin->assignRole($adminRole);
@@ -56,7 +55,6 @@ class RolesPermissionsSeeder extends Seeder
             'password' => bcrypt('password'),
             'gender' => 'M',
             'birth_date' => Carbon::now(),
-            'available_ads' => false
         ]);
 
         $moderator->assignRole($moderatorRole);
@@ -64,18 +62,17 @@ class RolesPermissionsSeeder extends Seeder
         $moderator->givePermissionTo($permissions);
 
 
-        $user = User::factory()->create([
+        $client = User::factory()->create([
             'first_name' => 'user',
             'last_name' => 'user',
             'phone' => '0967667180',
             'password' => bcrypt('password'),
             'gender' => 'M',
             'birth_date' => Carbon::now(),
-            'available_ads' => false
         ]);
 
-        $user->assignRole($userRole);
-        $permissions = $userRole->permissions()->pluck('name')->toArray();
-        $user->givePermissionTo($permissions);
+        $client->assignRole($clientRole);
+        $permissions = $clientRole->permissions()->pluck('name')->toArray();
+        $client->givePermissionTo($permissions);
     }
 }

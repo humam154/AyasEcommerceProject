@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->char('gender', 1)->nullable(false);
             $table->date('birth_date')->nullable(false);
-            $table->string('image')->nullable(true);
-            $table->boolean('available_ads')->nullable(false);
+            $table->string('image')->nullable()->default(' ');
             $table->rememberToken();
             $table->timestamps();
         });
