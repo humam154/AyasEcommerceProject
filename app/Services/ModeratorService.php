@@ -64,7 +64,7 @@ class ModeratorService
         $user = User::query()->where('phone', $request['phone'])->first();
         if(!is_null($user)) {
 
-            if (!$user->hasRole('client')) {
+            if ($user['role'] == 'admin' || $user['role'] == 'moderator') {
 
                 if (!Auth::attempt($request->only(['phone', 'password']))) {
                     $user = [];
@@ -94,7 +94,7 @@ class ModeratorService
         $user = Auth::user();
 
         if(!is_null($user)) {
-            if (!$user->hasRole('client')) {
+            if ($user['role'] == 'admin' || $user['role'] == 'moderator') {
                 $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
                 $message = 'user logged out successfully';
                 $code = 200;
@@ -116,8 +116,9 @@ class ModeratorService
         $user = Auth::user();
 
         if(!is_null($user)) {
-            if (!$user->hasRole('client')) {
+            if ($user['role'] == 'admin' || $user['role'] == 'moderator') {
                 if (!Hash::check($request['current_password'], $user['password'])) {
+                    $user = [];
                     $message = 'password is incorrect';
                     $code = 401;
                 } else {

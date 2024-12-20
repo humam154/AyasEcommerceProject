@@ -1,0 +1,4431 @@
+{
+	"info": {
+		"_postman_id": "dba216d9-a467-4cf7-9d29-7698386d3b4a",
+		"name": "Ayas Ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33760047"
+	},
+	"item": [
+		{
+			"name": "client auth",
+			"item": [
+				{
+					"name": "clientRegister",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "humam",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "allawi",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0949623975",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Testing123@987",
+									"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Testing123@987",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "M",
+									"description": "either M or F",
+									"type": "text"
+								},
+								{
+									"key": "birth_date",
+									"value": "2002-10-06",
+									"description": "this is the requested date format",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "the image is optional, max size is 4096 KB",
+									"type": "file",
+									"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/user/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "invalid phone number",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0949623",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-6",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Dec 2024 21:26:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"phone\": [\n            \"The phone field format is invalid.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "phone number taken",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0949623977",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-6",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Dec 2024 21:27:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"phone\": [\n            \"The phone has already been taken.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "password confirmation doesn't match",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0949623975",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@9",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-6",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Dec 2024 21:27:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"password\": [\n            \"The password field confirmation does not match.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "password has validation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0949623975",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testin",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testin",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-6",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Dec 2024 21:28:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"password\": [\n            \"The password field must be at least 8 characters.\",\n            \"The password field format is invalid.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "invalid gender type",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0949623975",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "y",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-6",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Dec 2024 21:28:36 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"gender\": [\n            \"The selected gender is invalid.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0949623975",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"description": "either M or F",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"description": "this is the requested date format",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"description": "the image is optional, max size is 4096 KB",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 13:39:12 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 4,\n        \"first_name\": \"humam\",\n        \"last_name\": \"allawi\",\n        \"phone\": \"0949623975\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2002-10-06\",\n        \"image\": \"/uploads/users/20241220133911.png\",\n        \"role\": \"client\",\n        \"created_at\": \"2024-12-20T13:39:12.000000Z\",\n        \"updated_at\": \"2024-12-20T13:39:12.000000Z\",\n        \"roles\": [\n            \"client\"\n        ],\n        \"permissions\": [\n            \"all.all\"\n        ],\n        \"token\": \"1|2ky3t4jh7dPVClhmZgNXUVx9g8GLiIlh6r2t2FdKf460f8f4\"\n    },\n    \"message\": \"user created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "clientLogin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone",
+									"value": "0967667180",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/user/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "0967667180",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Dec 2024 21:32:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 3,\n        \"first_name\": \"user\",\n        \"last_name\": \"user\",\n        \"phone\": \"0967667180\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2024-12-19\",\n        \"image\": \" \",\n        \"created_at\": \"2024-12-19T21:30:31.000000Z\",\n        \"updated_at\": \"2024-12-19T21:30:31.000000Z\",\n        \"roles\": [\n            \"client\"\n        ],\n        \"permissions\": [\n            \"all.all\"\n        ],\n        \"token\": \"1|PyhgR5o9iBYRg5zNNSyklJ3NLy8mPiCnUtG1OycP3dad4d4a\"\n    },\n    \"message\": \"user logged in successfully\"\n}"
+						},
+						{
+							"name": "wrong credentials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "0967667180",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "passwo",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Dec 2024 21:32:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"phone or password is wrong\"\n}"
+						}
+					]
+				},
+				{
+					"name": "clientLogout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/user/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/user/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Dec 2024 21:33:34 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 3,\n        \"first_name\": \"user\",\n        \"last_name\": \"user\",\n        \"phone\": \"0967667180\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2024-12-19\",\n        \"image\": \" \",\n        \"created_at\": \"2024-12-19T21:30:31.000000Z\",\n        \"updated_at\": \"2024-12-19T21:30:31.000000Z\"\n    },\n    \"message\": \"user logged out successfully\"\n}"
+						},
+						{
+							"name": "invalid token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/user/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"logout"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Dec 2024 21:34:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "clientChangePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "current_password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Testing123@987",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Testing123@987",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/user/change",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"change"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "invalid token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/change",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"change"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Dec 2024 21:39:46 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/user/change",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"change"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Dec 2024 21:40:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 3,\n        \"first_name\": \"user\",\n        \"last_name\": \"user\",\n        \"phone\": \"0967667180\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2024-12-19\",\n        \"image\": \" \",\n        \"created_at\": \"2024-12-19T21:39:41.000000Z\",\n        \"updated_at\": \"2024-12-19T21:40:44.000000Z\"\n    },\n    \"message\": \"password updated successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "admin auth",
+			"item": [
+				{
+					"name": "adminRegister",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "humam",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "allawi",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "098787572",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Testing123@987",
+									"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Testing123@987",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "M",
+									"description": "either M or F",
+									"type": "text"
+								},
+								{
+									"key": "birth_date",
+									"value": "2002-10-06",
+									"description": "this is the requested date format",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "image is optional",
+									"type": "file",
+									"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/admin/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0987875757",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 13:43:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 5,\n        \"first_name\": \"humam\",\n        \"last_name\": \"allawi\",\n        \"phone\": \"0987875757\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2002-10-06\",\n        \"image\": \" \",\n        \"role\": \"admin\",\n        \"created_at\": \"2024-12-20T13:43:08.000000Z\",\n        \"updated_at\": \"2024-12-20T13:43:08.000000Z\",\n        \"roles\": [\n            \"admin\"\n        ],\n        \"permissions\": [\n            \"all.all\"\n        ],\n        \"token\": \"4|E2Dz1WcXhwcom5G0i4BL8v5LoQY3qh4WWU74zKF42c5fbebf\"\n    },\n    \"message\": \"user created successfully\"\n}"
+						},
+						{
+							"name": "invalid phone number",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0987875",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 13:43:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"phone\": [\n            \"The phone field format is invalid.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "phone number taken",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0987875757",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 13:43:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"phone\": [\n            \"The phone has already been taken.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "password confirmation doesn't match",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0987875752",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@9",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 13:44:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"password\": [\n            \"The password field confirmation does not match.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "password has validation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0987875752",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 13:44:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"password\": [\n            \"The password field format is invalid.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "invalid gender type",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0987875752",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "y",
+											"description": "either M or F",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 13:45:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"gender\": [\n            \"The selected gender is invalid.\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "adminLogin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone",
+									"value": "0949623988",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/admin/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "not an admin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "0967667180",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"login"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:22:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"not and admin\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "0949623988",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:23:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"first_name\": \"admin\",\n        \"last_name\": \"admin\",\n        \"phone\": \"0949623988\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2024-12-20\",\n        \"image\": \" \",\n        \"role\": \"admin\",\n        \"created_at\": \"2024-12-20T14:18:17.000000Z\",\n        \"updated_at\": \"2024-12-20T14:18:17.000000Z\",\n        \"roles\": [\n            \"admin\"\n        ],\n        \"permissions\": [\n            \"all.all\"\n        ],\n        \"token\": \"5|sEQZotkLQ9A4TsOABiEc7G2smRd00FA8ysUhhN1G04d0a846\"\n    },\n    \"message\": \"user logged in successfully\"\n}"
+						},
+						{
+							"name": "wrong credintials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "0949623988",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "passwor",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:23:40 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"phone or password is wrong\"\n}"
+						}
+					]
+				},
+				{
+					"name": "adminLogout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/admin/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "invlid token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"logout"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:26:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:31:27 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"first_name\": \"admin\",\n        \"last_name\": \"admin\",\n        \"phone\": \"0949623988\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2024-12-20\",\n        \"image\": \" \",\n        \"role\": \"admin\",\n        \"created_at\": \"2024-12-20T14:18:17.000000Z\",\n        \"updated_at\": \"2024-12-20T14:18:17.000000Z\"\n    },\n    \"message\": \"user logged out successfully\"\n}"
+						},
+						{
+							"name": "not an admin",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/admin/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"logout"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:35:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"not an admin\"\n}"
+						}
+					]
+				},
+				{
+					"name": "adminChangePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "current_password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Testing123@987",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Testing123@987",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/admin/change",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"change"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "invalid token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/change",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"change"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:35:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+						},
+						{
+							"name": "not an admin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/change",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"change"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:35:54 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"not an admin\"\n}"
+						},
+						{
+							"name": "incorrect password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "passwo",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/change",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"change"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:39:22 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"password is incorrect\"\n}"
+						},
+						{
+							"name": "invalid password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/change",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"change"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:41:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"password\": [\n            \"The password field must be at least 8 characters.\",\n            \"The password field confirmation does not match.\",\n            \"The password field format is invalid.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/change",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"change"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:41:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"first_name\": \"admin\",\n        \"last_name\": \"admin\",\n        \"phone\": \"0949623988\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2024-12-20\",\n        \"image\": \" \",\n        \"role\": \"admin\",\n        \"created_at\": \"2024-12-20T14:18:17.000000Z\",\n        \"updated_at\": \"2024-12-20T14:41:47.000000Z\",\n        \"roles\": [\n            \"admin\"\n        ],\n        \"permissions\": [\n            \"all.all\"\n        ]\n    },\n    \"message\": \"password updated successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "moderator auth",
+			"item": [
+				{
+					"name": "moderatorRegister",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "humam",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "allawi",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0966888555",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Testing123@987",
+									"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Testing123@987",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "M",
+									"description": "either M or F",
+									"type": "text"
+								},
+								{
+									"key": "birth_date",
+									"value": "2002-10-06",
+									"description": "this is the requestd date format",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "image is optional, max size 4096",
+									"type": "file",
+									"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/moderator/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"moderator",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0987875752",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"description": "either M or F",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"description": "this is the requestd date format",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"description": "image is optional, max size 4096",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/moderator/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:46:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 4,\n        \"first_name\": \"humam\",\n        \"last_name\": \"allawi\",\n        \"phone\": \"0987875752\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2002-10-06\",\n        \"image\": \"/uploads/users/20241220144624.png\",\n        \"role\": \"moderator\",\n        \"created_at\": \"2024-12-20T14:46:25.000000Z\",\n        \"updated_at\": \"2024-12-20T14:46:25.000000Z\",\n        \"roles\": [\n            \"moderator\"\n        ],\n        \"permissions\": [\n            \"all.all\"\n        ],\n        \"token\": \"19|IubKVKLfkv2W5rJpdhN7u9IBN0xCjQdikAeDzFVQ82c2f2dc\"\n    },\n    \"message\": \"user created successfully\"\n}"
+						},
+						{
+							"name": "phone number taken",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0987875752",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"description": "either M or F",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"description": "this is the requestd date format",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"description": "image is optional, max size 4096",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/moderator/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:47:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"phone\": [\n            \"The phone has already been taken.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "invalid phone number",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "098787575",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"description": "either M or F",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"description": "this is the requestd date format",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"description": "image is optional, max size 4096",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/moderator/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:47:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"phone\": [\n            \"The phone field format is invalid.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "password confirmation doesn't match",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0987875750",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@9",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"description": "either M or F",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"description": "this is the requestd date format",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"description": "image is optional, max size 4096",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/moderator/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:48:17 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"password\": [\n            \"The password field confirmation does not match.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "password has validation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0966888555",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123",
+											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"description": "either M or F",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"description": "this is the requestd date format",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"description": "image is optional, max size 4096",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/moderator/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:49:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"password\": [\n            \"The password field format is invalid.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "invalid gender type",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0966888555",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "y",
+											"description": "either M or F",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"description": "this is the requestd date format",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"description": "image is optional, max size 4096",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/moderator/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:49:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"gender\": [\n            \"The selected gender is invalid.\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "moderatorLogin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone",
+									"value": "0930610494",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/moderator/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"moderator",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "0930610494",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/moderator/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:55:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"first_name\": \"moderator\",\n        \"last_name\": \"moderator\",\n        \"phone\": \"0930610494\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2024-12-20\",\n        \"image\": \" \",\n        \"role\": \"moderator\",\n        \"created_at\": \"2024-12-20T14:55:14.000000Z\",\n        \"updated_at\": \"2024-12-20T14:55:14.000000Z\",\n        \"roles\": [\n            \"moderator\"\n        ],\n        \"permissions\": [\n            \"all.all\"\n        ],\n        \"token\": \"1|0bASImcF43h9hOT80hHbltiNYDmFH1ealsCMwciY809f7e9e\"\n    },\n    \"message\": \"user logged in successfully\"\n}"
+						},
+						{
+							"name": "wrong credintials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "0930610494",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "passwo",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/moderator/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:55:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"phone or password is wrong\"\n}"
+						},
+						{
+							"name": "client account",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "0967667180",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/moderator/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"login"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:56:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"client account\"\n}"
+						}
+					]
+				},
+				{
+					"name": "moderatorLogout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/moderator/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"moderator",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "invalid token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/moderator/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"logout"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:57:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+						},
+						{
+							"name": "client account",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/moderator/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"logout"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:57:56 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"client account\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/moderator/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:58:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"first_name\": \"moderator\",\n        \"last_name\": \"moderator\",\n        \"phone\": \"0930610494\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2024-12-20\",\n        \"image\": \" \",\n        \"role\": \"moderator\",\n        \"created_at\": \"2024-12-20T14:55:14.000000Z\",\n        \"updated_at\": \"2024-12-20T14:55:14.000000Z\"\n    },\n    \"message\": \"user logged out successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "moderatorChangePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "current_password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Testing123@987",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Testing123@987",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/moderator/change",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"moderator",
+								"change"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "invalid token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/moderator/change",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"change"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 14:59:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/moderator/change",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"change"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 15:00:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"first_name\": \"moderator\",\n        \"last_name\": \"moderator\",\n        \"phone\": \"0930610494\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2024-12-20\",\n        \"image\": \" \",\n        \"role\": \"moderator\",\n        \"created_at\": \"2024-12-20T14:55:14.000000Z\",\n        \"updated_at\": \"2024-12-20T15:00:04.000000Z\",\n        \"roles\": [\n            \"moderator\"\n        ],\n        \"permissions\": [\n            \"all.all\"\n        ]\n    },\n    \"message\": \"password updated successfully\"\n}"
+						},
+						{
+							"name": "client account",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/moderator/change",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"change"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 15:00:24 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"client account\"\n}"
+						},
+						{
+							"name": "incorrect password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "current_password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/moderator/change",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"moderator",
+										"change"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 20 Dec 2024 15:01:35 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"password is incorrect\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "127.0.0.1:8000/api",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "token",
+			"type": "string"
+		}
+	]
+}

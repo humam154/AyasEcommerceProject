@@ -100,6 +100,7 @@ class UserService
 
         if(!is_null($user)) {
             if(!Hash::check($request['current_password'], $user['password'])) {
+                $user = [];
                 $message = 'password is incorrect';
                 $code = 401;
             }

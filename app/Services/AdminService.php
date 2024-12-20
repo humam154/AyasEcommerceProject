@@ -63,7 +63,7 @@ class AdminService
     {
         $user = User::query()->where('phone', $request['phone'])->first();
         if(!is_null($user)) {
-            if ($user->hasRole('admin')) {
+            if ($user['role'] == 'admin') {
                 if (!Auth::attempt($request->only(['phone', 'password']))) {
                     $user = [];
                     $message = 'phone or password is wrong';
@@ -92,7 +92,7 @@ class AdminService
         $user = Auth::user();
 
         if(!is_null($user)) {
-            if ($user->hasRole('admin')) {
+            if ($user['role'] == 'admin') {
                 $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
                 $message = 'user logged out successfully';
                 $code = 200;
@@ -114,8 +114,9 @@ class AdminService
         $user = Auth::user();
 
         if(!is_null($user)) {
-            if ($user->hasRole('admin')) {
+            if ($user['role'] == 'admin') {
                 if (!Hash::check($request['current_password'], $user['password'])) {
+                    $user = [];
                     $message = 'password is incorrect';
                     $code = 401;
                 } else {
