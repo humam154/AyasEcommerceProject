@@ -63,12 +63,11 @@ class UserService
     {
         $user = User::query()->where('phone', $request['phone'])->first();
         if(!is_null($user)) {
-            if(!Auth::attempt($request->only(['phone', 'password']))) {
+            if (!Auth::attempt($request->only(['phone', 'password']))) {
                 $user = [];
                 $message = 'phone or password is wrong';
                 $code = 401;
-            }
-            else {
+            } else {
                 $user = $this->appendRolesAndPermissions($user);
                 $user['token'] = $user->createToken("Access Token")->plainTextToken;
                 $message = 'user logged in successfully';
@@ -89,12 +88,10 @@ class UserService
             $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
             $message = 'user logged out successfully';
             $code = 200;
-        }
-        else {
+        } else {
             $message = 'invalid token';
             $code = 401;
         }
-
         return ['user' => $user, 'message' => $message, 'code' => $code];
     }
     public function changePassword($request): array
@@ -107,7 +104,7 @@ class UserService
                 $code = 401;
             }
             else {
-                $user['password'] = Hash::make($request['password']);
+                $user['password'] = Hash::make($request['new_password']);
                 $user->save();
                 $user = $this->appendRolesAndPermissions($user);
                 $message = 'password updated successfully';
