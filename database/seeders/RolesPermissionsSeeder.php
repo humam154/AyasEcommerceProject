@@ -42,6 +42,7 @@ class RolesPermissionsSeeder extends Seeder
             'password' => Hash::make('password'),
             'gender' => 'M',
             'birth_date' => Carbon::now(),
+            'role' => 'admin',
         ]);
 
         $admin->assignRole($adminRole);
@@ -56,6 +57,7 @@ class RolesPermissionsSeeder extends Seeder
             'password' => Hash::make('password'),
             'gender' => 'M',
             'birth_date' => Carbon::now(),
+            'role' => 'moderator',
         ]);
 
         $moderator->assignRole($moderatorRole);
@@ -70,6 +72,7 @@ class RolesPermissionsSeeder extends Seeder
             'password' => Hash::make('password'),
             'gender' => 'M',
             'birth_date' => Carbon::now(),
+            'role' => 'client',
         ]);
 
         $client->assignRole($clientRole);

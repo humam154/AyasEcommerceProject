@@ -2,55 +2,53 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\User\UserChangePasswordRequest;
-use App\Http\Requests\User\UserLoginRequest;
-use App\Http\Requests\User\UserRegisterRequest;
+use App\Http\Requests\Admin\AdminChangePasswordRequest;
+use App\Http\Requests\Admin\AdminLoginRequest;
+use App\Http\Requests\Admin\AdminRegisterRequest;
 use App\Http\Responses\Response;
-use App\Services\UserService;
+use App\Services\AdminService;
 use Illuminate\Http\JsonResponse;
 use Throwable;
 
-class UserController extends Controller
+class AdminController extends Controller
 {
-    private UserService $userService;
-    public function __construct(UserService $userService)
+    private AdminService $adminService;
+
+    public function __construct(AdminService $adminService)
     {
-        $this->userService = $userService;
+        $this->adminService = $adminService;
     }
 
-    public function register(UserRegisterRequest $request): JsonResponse
+    public function register(AdminRegisterRequest $request): JsonResponse
     {
         $data = [];
 
-        try
-        {
-            $data = $this->userService->register($request);
-
+        try {
+            $data = $this->adminService->register($request);
             if($data['code'] != 200){
-                return Response::Error($data['user'] ,$data['message'], $data['code']);
+                return Response::Error($data['user'], $data['message'], $data['code']);
             }
-
             return Response::Success($data['user'], $data['message'], $data['code']);
         }
-        catch(Throwable $throwable)
+        catch (Throwable $throwable)
         {
             $message = $throwable->getMessage();
             return Response::Error($data, $message);
         }
     }
 
-    public function login(UserLoginRequest $request): JsonResponse
+    public function login(AdminLoginRequest $request): JsonResponse
     {
         $data = [];
 
         try {
-            $data = $this->userService->login($request);
+            $data = $this->adminService->login($request);
             if($data['code'] != 200){
-                return Response::Error($data['user'] ,$data['message'], $data['code']);
+                return Response::Error($data['user'], $data['message'], $data['code']);
             }
             return Response::Success($data['user'], $data['message'], $data['code']);
         }
-        catch(Throwable $throwable) {
+        catch (Throwable $throwable) {
             $message = $throwable->getMessage();
             return Response::Error($data, $message);
         }
@@ -61,30 +59,30 @@ class UserController extends Controller
         $data = [];
 
         try {
-            $data = $this->userService->logout();
+            $data = $this->adminService->logout();
             if($data['code'] != 200){
-                return Response::Error($data['user'] ,$data['message'], $data['code']);
+                return Response::Error($data['user'], $data['message'], $data['code']);
             }
             return Response::Success($data['user'], $data['message'], $data['code']);
         }
-        catch(Throwable $throwable) {
+        catch (Throwable $throwable) {
             $message = $throwable->getMessage();
             return Response::Error($data, $message);
         }
     }
 
-    public function changePassword(UserChangePasswordRequest $request): JsonResponse
+    public function changePassword(AdminChangePasswordRequest $request): JsonResponse
     {
         $data = [];
 
-        try{
-            $data = $this->userService->changePassword($request);
+        try {
+            $data = $this->adminService->changePassword($request);
             if($data['code'] != 200){
-                return Response::Error($data['user'] ,$data['message'], $data['code']);
+                return Response::Error($data['user'], $data['message'], $data['code']);
             }
             return Response::Success($data['user'], $data['message'], $data['code']);
         }
-        catch(Throwable $throwable) {
+        catch (Throwable $throwable) {
             $message = $throwable->getMessage();
             return Response::Error($data, $message);
         }

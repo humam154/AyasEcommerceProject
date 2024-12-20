@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
-class UserService
+class ModeratorService
 {
     public function register($request): array
     {
@@ -34,13 +34,13 @@ class UserService
                 'gender' => $request['gender'],
                 'birth_date' => $request['birth_date'],
                 'image' => $imagePath,
-                'role' => 'client'
+                'role' => 'moderator'
             ]);
 
-            $clientRole = Role::query()->firstWhere('name', 'client');
-            $user = $user->assignRole($clientRole);
+            $moderatorRole = Role::query()->firstWhere('name', 'moderator');
+            $user = $user->assignRole($moderatorRole);
 
-            $permissions = $clientRole->permissions()->pluck('name')->toArray();
+            $permissions = $moderatorRole->permissions()->pluck('name')->toArray();
             $user->givePermissionTo($permissions);
 
             $user->load('roles', 'permissions');

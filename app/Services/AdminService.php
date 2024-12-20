@@ -7,19 +7,19 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
-class UserService
+class AdminService
 {
+
     public function register($request): array
     {
-
         if (!is_null($request)) {
 
             $imagePath = ' ';
             if ($request->hasFile('image')) {
 
-                $ext = $request->file('image')->extension();
+                $extension = $request->file('image')->extension();
 
-                $final_name = date('YmdHis') . '.' . $ext;
+                $final_name = date('YmdHis') . '.' . $extension;
 
                 $request->file('image')->move(public_path('uploads/users'), $final_name);
 
@@ -34,13 +34,13 @@ class UserService
                 'gender' => $request['gender'],
                 'birth_date' => $request['birth_date'],
                 'image' => $imagePath,
-                'role' => 'client'
+                'role' => 'admin'
             ]);
 
-            $clientRole = Role::query()->firstWhere('name', 'client');
-            $user = $user->assignRole($clientRole);
+            $adminRole = Role::query()->firstWhere('name', 'admin');
+            $user = $user->assignRole($adminRole);
 
-            $permissions = $clientRole->permissions()->pluck('name')->toArray();
+            $permissions = $adminRole->permissions()->pluck('name')->toArray();
             $user->givePermissionTo($permissions);
 
             $user->load('roles', 'permissions');
