@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Admin\AddModeratorRequest;
 use App\Http\Requests\Admin\AdminChangePasswordRequest;
 use App\Http\Requests\Admin\AdminLoginRequest;
 use App\Http\Requests\Admin\AdminRegisterRequest;
@@ -61,6 +62,25 @@ class AdminController extends Controller
             if($data['code'] != 200){
                 return Response::Error($data['user'], $data['message'], $data['code']);
             }
+            return Response::Success($data['user'], $data['message'], $data['code']);
+        }
+        catch (Throwable $throwable) {
+            $message = $throwable->getMessage();
+            return Response::Error($data, $message);
+        }
+    }
+
+    public function addModerator(AddModeratorRequest $request): JsonResponse
+    {
+        $data = [];
+
+        try {
+            $data = $this->adminService->addModerator($request);
+
+            if($data['code'] != 200){
+                return Response::Error($data['user'], $data['message'], $data['code']);
+            }
+
             return Response::Success($data['user'], $data['message'], $data['code']);
         }
         catch (Throwable $throwable) {

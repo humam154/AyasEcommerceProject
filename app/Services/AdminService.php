@@ -87,6 +87,55 @@ class AdminService
 
         return ['user' => $user, 'message' => $message, 'code' => $code];
     }
+
+    public function addModerator($request): array
+    {
+        $user = Auth::user();
+
+        if(!is_null($user)) {
+            $imagePath = ' ';
+            if($request->hasFile('image')) {
+
+                $ext = $request->file('image')->extension();
+
+                $final_name = date('YmdHis') . '.' . $ext;
+
+                $request->file('image')->move(public_path('uploads/users'), $final_name);
+
+                $imagePath = '/uploads/users/' . $final_name;
+            }
+            $moderator = User::query()->create([
+                'first_name' => $request['first_name'],
+                'last_name' => $request['last_name'],
+                'phone' => $request['phone'],
+                'password' => Hash::make($request['password']),
+                'gender' => $request['gender'],
+                'birth_date' => $request['birth_date'],
+                'image' => $imagePath,
+                'role' => 'moderator'
+            ]);
+
+            $moderatorRole = Role::query()->where('name', 'moderator')->first();
+            $moderator = $moderator->assignRole($moderatorRole);
+
+            $permissions = $moderatorRole->permissions()->pluck('name')->toArray();
+            $moderator->givePermissionTo($permissions);
+
+            $moderator->load('roles', 'permissions');
+
+            $moderator = User::query()->find($moderator['id']);
+            $moderator = $this->appendRolesAndPermissions($moderator);
+
+            $message = 'created successfully';
+            $code = 201;
+        } else {
+            $user = [];
+            $message = 'invalid token';
+            $code = 401;
+        }
+
+        return ['user' => $moderator, 'message' => $message, 'code' => $code];
+    }
     private function appendRolesAndPermissions($user){
         $roles = [];
 

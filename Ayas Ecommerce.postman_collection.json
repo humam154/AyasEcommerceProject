@@ -1259,670 +1259,6 @@
 			"name": "admin auth",
 			"item": [
 				{
-					"name": "adminRegister",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "first_name",
-									"value": "humam",
-									"type": "text"
-								},
-								{
-									"key": "last_name",
-									"value": "allawi",
-									"type": "text"
-								},
-								{
-									"key": "phone",
-									"value": "098787572",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "Testing123@987",
-									"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
-									"type": "text"
-								},
-								{
-									"key": "password_confirmation",
-									"value": "Testing123@987",
-									"type": "text"
-								},
-								{
-									"key": "gender",
-									"value": "M",
-									"description": "either M or F",
-									"type": "text"
-								},
-								{
-									"key": "birth_date",
-									"value": "2002-10-06",
-									"description": "this is the requested date format",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"description": "image is optional",
-									"type": "file",
-									"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/admin/register",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"admin",
-								"register"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "first_name",
-											"value": "humam",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "allawi",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "0987875757",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Testing123@987",
-											"type": "text"
-										},
-										{
-											"key": "password_confirmation",
-											"value": "Testing123@987",
-											"type": "text"
-										},
-										{
-											"key": "gender",
-											"value": "M",
-											"type": "text"
-										},
-										{
-											"key": "birth_date",
-											"value": "2002-10-06",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/register",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"register"
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 20 Dec 2024 13:43:08 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"id\": 5,\n        \"first_name\": \"humam\",\n        \"last_name\": \"allawi\",\n        \"phone\": \"0987875757\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2002-10-06\",\n        \"image\": \" \",\n        \"role\": \"admin\",\n        \"created_at\": \"2024-12-20T13:43:08.000000Z\",\n        \"updated_at\": \"2024-12-20T13:43:08.000000Z\",\n        \"roles\": [\n            \"admin\"\n        ],\n        \"permissions\": [\n            \"all.all\"\n        ],\n        \"token\": \"4|E2Dz1WcXhwcom5G0i4BL8v5LoQY3qh4WWU74zKF42c5fbebf\"\n    },\n    \"message\": \"user created successfully\"\n}"
-						},
-						{
-							"name": "invalid phone number",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "first_name",
-											"value": "humam",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "allawi",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "0987875",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Testing123@987",
-											"type": "text"
-										},
-										{
-											"key": "password_confirmation",
-											"value": "Testing123@987",
-											"type": "text"
-										},
-										{
-											"key": "gender",
-											"value": "M",
-											"type": "text"
-										},
-										{
-											"key": "birth_date",
-											"value": "2002-10-06",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/register",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"register"
-									]
-								}
-							},
-							"status": "Unprocessable Content",
-							"code": 422,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 20 Dec 2024 13:43:33 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"phone\": [\n            \"The phone field format is invalid.\"\n        ]\n    }\n}"
-						},
-						{
-							"name": "phone number taken",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "first_name",
-											"value": "humam",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "allawi",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "0987875757",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Testing123@987",
-											"type": "text"
-										},
-										{
-											"key": "password_confirmation",
-											"value": "Testing123@987",
-											"type": "text"
-										},
-										{
-											"key": "gender",
-											"value": "M",
-											"type": "text"
-										},
-										{
-											"key": "birth_date",
-											"value": "2002-10-06",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/register",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"register"
-									]
-								}
-							},
-							"status": "Unprocessable Content",
-							"code": 422,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 20 Dec 2024 13:43:55 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"phone\": [\n            \"The phone has already been taken.\"\n        ]\n    }\n}"
-						},
-						{
-							"name": "password confirmation doesn't match",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "first_name",
-											"value": "humam",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "allawi",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "0987875752",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Testing123@987",
-											"type": "text"
-										},
-										{
-											"key": "password_confirmation",
-											"value": "Testing123@9",
-											"type": "text"
-										},
-										{
-											"key": "gender",
-											"value": "M",
-											"type": "text"
-										},
-										{
-											"key": "birth_date",
-											"value": "2002-10-06",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/register",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"register"
-									]
-								}
-							},
-							"status": "Unprocessable Content",
-							"code": 422,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 20 Dec 2024 13:44:13 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"password\": [\n            \"The password field confirmation does not match.\"\n        ]\n    }\n}"
-						},
-						{
-							"name": "password has validation",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "first_name",
-											"value": "humam",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "allawi",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "0987875752",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Testing123",
-											"type": "text"
-										},
-										{
-											"key": "password_confirmation",
-											"value": "Testing123",
-											"type": "text"
-										},
-										{
-											"key": "gender",
-											"value": "M",
-											"type": "text"
-										},
-										{
-											"key": "birth_date",
-											"value": "2002-10-06",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/register",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"register"
-									]
-								}
-							},
-							"status": "Unprocessable Content",
-							"code": 422,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 20 Dec 2024 13:44:53 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"password\": [\n            \"The password field format is invalid.\"\n        ]\n    }\n}"
-						},
-						{
-							"name": "invalid gender type",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "first_name",
-											"value": "humam",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "allawi",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "0987875752",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Testing123@987",
-											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
-											"type": "text"
-										},
-										{
-											"key": "password_confirmation",
-											"value": "Testing123@987",
-											"type": "text"
-										},
-										{
-											"key": "gender",
-											"value": "y",
-											"description": "either M or F",
-											"type": "text"
-										},
-										{
-											"key": "birth_date",
-											"value": "2002-10-06",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/admin/register",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"admin",
-										"register"
-									]
-								}
-							},
-							"status": "Unprocessable Content",
-							"code": 422,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 20 Dec 2024 13:45:31 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"gender\": [\n            \"The selected gender is invalid.\"\n        ]\n    }\n}"
-						}
-					]
-				},
-				{
 					"name": "adminLogin",
 					"request": {
 						"method": "POST",
@@ -2841,722 +2177,6 @@
 			"name": "moderator auth",
 			"item": [
 				{
-					"name": "moderatorRegister",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "first_name",
-									"value": "humam",
-									"type": "text"
-								},
-								{
-									"key": "last_name",
-									"value": "allawi",
-									"type": "text"
-								},
-								{
-									"key": "phone",
-									"value": "0966888555",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "Testing123@987",
-									"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
-									"type": "text"
-								},
-								{
-									"key": "password_confirmation",
-									"value": "Testing123@987",
-									"type": "text"
-								},
-								{
-									"key": "gender",
-									"value": "M",
-									"description": "either M or F",
-									"type": "text"
-								},
-								{
-									"key": "birth_date",
-									"value": "2002-10-06",
-									"description": "this is the requestd date format",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"description": "image is optional, max size 4096",
-									"type": "file",
-									"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{url}}/moderator/register",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"moderator",
-								"register"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "first_name",
-											"value": "humam",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "allawi",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "0987875752",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Testing123@987",
-											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
-											"type": "text"
-										},
-										{
-											"key": "password_confirmation",
-											"value": "Testing123@987",
-											"type": "text"
-										},
-										{
-											"key": "gender",
-											"value": "M",
-											"description": "either M or F",
-											"type": "text"
-										},
-										{
-											"key": "birth_date",
-											"value": "2002-10-06",
-											"description": "this is the requestd date format",
-											"type": "text"
-										},
-										{
-											"key": "image",
-											"description": "image is optional, max size 4096",
-											"type": "file",
-											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/moderator/register",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"moderator",
-										"register"
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 20 Dec 2024 14:46:25 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"id\": 4,\n        \"first_name\": \"humam\",\n        \"last_name\": \"allawi\",\n        \"phone\": \"0987875752\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2002-10-06\",\n        \"image\": \"/uploads/users/20241220144624.png\",\n        \"role\": \"moderator\",\n        \"created_at\": \"2024-12-20T14:46:25.000000Z\",\n        \"updated_at\": \"2024-12-20T14:46:25.000000Z\",\n        \"roles\": [\n            \"moderator\"\n        ],\n        \"permissions\": [\n            \"all.all\"\n        ],\n        \"token\": \"19|IubKVKLfkv2W5rJpdhN7u9IBN0xCjQdikAeDzFVQ82c2f2dc\"\n    },\n    \"message\": \"user created successfully\"\n}"
-						},
-						{
-							"name": "phone number taken",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "first_name",
-											"value": "humam",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "allawi",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "0987875752",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Testing123@987",
-											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
-											"type": "text"
-										},
-										{
-											"key": "password_confirmation",
-											"value": "Testing123@987",
-											"type": "text"
-										},
-										{
-											"key": "gender",
-											"value": "M",
-											"description": "either M or F",
-											"type": "text"
-										},
-										{
-											"key": "birth_date",
-											"value": "2002-10-06",
-											"description": "this is the requestd date format",
-											"type": "text"
-										},
-										{
-											"key": "image",
-											"description": "image is optional, max size 4096",
-											"type": "file",
-											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/moderator/register",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"moderator",
-										"register"
-									]
-								}
-							},
-							"status": "Unprocessable Content",
-							"code": 422,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 20 Dec 2024 14:47:43 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"phone\": [\n            \"The phone has already been taken.\"\n        ]\n    }\n}"
-						},
-						{
-							"name": "invalid phone number",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "first_name",
-											"value": "humam",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "allawi",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "098787575",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Testing123@987",
-											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
-											"type": "text"
-										},
-										{
-											"key": "password_confirmation",
-											"value": "Testing123@987",
-											"type": "text"
-										},
-										{
-											"key": "gender",
-											"value": "M",
-											"description": "either M or F",
-											"type": "text"
-										},
-										{
-											"key": "birth_date",
-											"value": "2002-10-06",
-											"description": "this is the requestd date format",
-											"type": "text"
-										},
-										{
-											"key": "image",
-											"description": "image is optional, max size 4096",
-											"type": "file",
-											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/moderator/register",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"moderator",
-										"register"
-									]
-								}
-							},
-							"status": "Unprocessable Content",
-							"code": 422,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 20 Dec 2024 14:47:56 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"phone\": [\n            \"The phone field format is invalid.\"\n        ]\n    }\n}"
-						},
-						{
-							"name": "password confirmation doesn't match",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "first_name",
-											"value": "humam",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "allawi",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "0987875750",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Testing123@987",
-											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
-											"type": "text"
-										},
-										{
-											"key": "password_confirmation",
-											"value": "Testing123@9",
-											"type": "text"
-										},
-										{
-											"key": "gender",
-											"value": "M",
-											"description": "either M or F",
-											"type": "text"
-										},
-										{
-											"key": "birth_date",
-											"value": "2002-10-06",
-											"description": "this is the requestd date format",
-											"type": "text"
-										},
-										{
-											"key": "image",
-											"description": "image is optional, max size 4096",
-											"type": "file",
-											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/moderator/register",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"moderator",
-										"register"
-									]
-								}
-							},
-							"status": "Unprocessable Content",
-							"code": 422,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 20 Dec 2024 14:48:17 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"password\": [\n            \"The password field confirmation does not match.\"\n        ]\n    }\n}"
-						},
-						{
-							"name": "password has validation",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "first_name",
-											"value": "humam",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "allawi",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "0966888555",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Testing123",
-											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
-											"type": "text"
-										},
-										{
-											"key": "password_confirmation",
-											"value": "Testing123",
-											"type": "text"
-										},
-										{
-											"key": "gender",
-											"value": "M",
-											"description": "either M or F",
-											"type": "text"
-										},
-										{
-											"key": "birth_date",
-											"value": "2002-10-06",
-											"description": "this is the requestd date format",
-											"type": "text"
-										},
-										{
-											"key": "image",
-											"description": "image is optional, max size 4096",
-											"type": "file",
-											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/moderator/register",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"moderator",
-										"register"
-									]
-								}
-							},
-							"status": "Unprocessable Content",
-							"code": 422,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 20 Dec 2024 14:49:07 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"password\": [\n            \"The password field format is invalid.\"\n        ]\n    }\n}"
-						},
-						{
-							"name": "invalid gender type",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "first_name",
-											"value": "humam",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "allawi",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "0966888555",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "Testing123@987",
-											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
-											"type": "text"
-										},
-										{
-											"key": "password_confirmation",
-											"value": "Testing123@987",
-											"type": "text"
-										},
-										{
-											"key": "gender",
-											"value": "y",
-											"description": "either M or F",
-											"type": "text"
-										},
-										{
-											"key": "birth_date",
-											"value": "2002-10-06",
-											"description": "this is the requestd date format",
-											"type": "text"
-										},
-										{
-											"key": "image",
-											"description": "image is optional, max size 4096",
-											"type": "file",
-											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/moderator/register",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"moderator",
-										"register"
-									]
-								}
-							},
-							"status": "Unprocessable Content",
-							"code": 422,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.12"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 20 Dec 2024 14:49:32 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"gender\": [\n            \"The selected gender is invalid.\"\n        ]\n    }\n}"
-						}
-					]
-				},
-				{
 					"name": "moderatorLogin",
 					"request": {
 						"method": "POST",
@@ -4388,6 +3008,817 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": [],\n    \"message\": \"password is incorrect\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "add moderator",
+			"item": [
+				{
+					"name": "addModerator",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|jZHs4j74MHo0pdlBvVBJSdkQUjEGq0it10zNVPuN57f8d48f",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "humam",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "allawi",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0992875521",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Testing123@987",
+									"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Testing123@987",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "y",
+									"description": "either M or F",
+									"type": "text"
+								},
+								{
+									"key": "birth_date",
+									"value": "2002-10-06",
+									"description": "this is the requested dat format",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "the image is optional",
+									"type": "file",
+									"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/admin/addModerator",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"addModerator"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "invalid token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0966888555",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/addModerator",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"addModerator"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Dec 2024 09:17:54 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0966888555",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/addModerator",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"addModerator"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Dec 2024 09:20:41 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 4,\n        \"first_name\": \"humam\",\n        \"last_name\": \"allawi\",\n        \"phone\": \"0966888555\",\n        \"gender\": \"M\",\n        \"birth_date\": \"2002-10-06\",\n        \"image\": \"/uploads/users/20241223092041.png\",\n        \"role\": \"moderator\",\n        \"created_at\": \"2024-12-23T09:20:41.000000Z\",\n        \"updated_at\": \"2024-12-23T09:20:41.000000Z\",\n        \"roles\": [\n            \"moderator\"\n        ],\n        \"permissions\": [\n            \"all.all\"\n        ]\n    },\n    \"message\": \"created successfully\"\n}"
+						},
+						{
+							"name": "phone taken",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0966888555",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/addModerator",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"addModerator"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Dec 2024 09:21:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"phone\": [\n            \"The phone has already been taken.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "invalid phone number",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "09668885",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/addModerator",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"addModerator"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Dec 2024 09:21:36 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"phone\": [\n            \"The phone field format is invalid.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "password confirmation doesn't match",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0992875521",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/addModerator",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"addModerator"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Dec 2024 09:22:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"password\": [\n            \"The password field confirmation does not match.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "password has validation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0992875521",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "M",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/addModerator",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"addModerator"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Dec 2024 09:22:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"password\": [\n            \"The password field format is invalid.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "invalid gender type",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "humam",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "allawi",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0992875521",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Testing123@987",
+											"description": "8 charectars or more, small letter, capital letter, special char, number are the validation on password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "Testing123@987",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "y",
+											"type": "text"
+										},
+										{
+											"key": "birth_date",
+											"value": "2002-10-06",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/addModerator",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"addModerator"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 23 Dec 2024 09:23:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"gender\": [\n            \"The selected gender is invalid.\"\n        ]\n    }\n}"
 						}
 					]
 				}

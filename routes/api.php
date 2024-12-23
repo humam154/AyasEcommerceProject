@@ -30,6 +30,7 @@ Route::prefix('admin')->controller(AdminController::class)->group(function () {
     Route::group(['middleware' => 'auth:sanctum'], function () {
        Route::get('/logout', 'logout')->name('admin.logout');
        Route::post('/change', 'changePassword')->name('admin.change');
+       Route::post('addModerator', 'addModerator')->name('admin.addModerator');
     });
 });
 
