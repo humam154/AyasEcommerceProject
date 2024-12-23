@@ -9,56 +9,6 @@ use Spatie\Permission\Models\Role;
 
 class AdminService
 {
-
-    public function register($request): array
-    {
-        if (!is_null($request)) {
-
-            $imagePath = ' ';
-            if ($request->hasFile('image')) {
-
-                $extension = $request->file('image')->extension();
-
-                $final_name = date('YmdHis') . '.' . $extension;
-
-                $request->file('image')->move(public_path('uploads/users'), $final_name);
-
-                $imagePath = '/uploads/users/' . $final_name;
-            }
-
-            $user = User::query()->create([
-                'first_name' => $request['first_name'],
-                'last_name' => $request['last_name'],
-                'phone' => $request['phone'],
-                'password' => Hash::make($request['password']),
-                'gender' => $request['gender'],
-                'birth_date' => $request['birth_date'],
-                'image' => $imagePath,
-                'role' => 'admin'
-            ]);
-
-            $adminRole = Role::query()->firstWhere('name', 'admin');
-            $user = $user->assignRole($adminRole);
-
-            $permissions = $adminRole->permissions()->pluck('name')->toArray();
-            $user->givePermissionTo($permissions);
-
-            $user->load('roles', 'permissions');
-
-            $user = User::query()->find($user['id']);
-            $user = $this->appendRolesAndPermissions($user);
-            $user['token'] = $user->createToken("Access Token")->plainTextToken;
-
-            $message = 'user created successfully';
-            $code = 201;
-        }
-        else {
-            $user = [];
-            $message = 'invalid request';
-            $code = 400;
-        }
-        return ['user' => $user, 'message' => $message, 'code' => $code];
-    }
     public function login($request): array
     {
         $user = User::query()->where('phone', $request['phone'])->first();
@@ -79,8 +29,7 @@ class AdminService
                 $message = 'not and admin';
                 $code = 403;
             }
-        }
-        else {
+        } else {
             $message = 'user not found';
             $code = 404;
         }
@@ -101,8 +50,7 @@ class AdminService
                 $message = 'not an admin';
                 $code = 403;
             }
-        }
-        else {
+        } else {
             $message = 'invalid token';
             $code = 404;
         }
@@ -131,8 +79,7 @@ class AdminService
                 $message = 'not an admin';
                 $code = 403;
             }
-        }
-        else {
+        } else {
             $user = [];
             $message = 'user not found';
             $code = 404;

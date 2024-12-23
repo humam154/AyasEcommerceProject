@@ -18,25 +18,6 @@ class AdminController extends Controller
     {
         $this->adminService = $adminService;
     }
-
-    public function register(AdminRegisterRequest $request): JsonResponse
-    {
-        $data = [];
-
-        try {
-            $data = $this->adminService->register($request);
-            if($data['code'] != 200){
-                return Response::Error($data['user'], $data['message'], $data['code']);
-            }
-            return Response::Success($data['user'], $data['message'], $data['code']);
-        }
-        catch (Throwable $throwable)
-        {
-            $message = $throwable->getMessage();
-            return Response::Error($data, $message);
-        }
-    }
-
     public function login(AdminLoginRequest $request): JsonResponse
     {
         $data = [];

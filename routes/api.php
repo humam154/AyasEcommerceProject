@@ -25,7 +25,6 @@ Route::prefix('user')->controller(UserController::class)->group(function () {
 
 Route::prefix('admin')->controller(AdminController::class)->group(function () {
 
-    Route::post('/register', 'register')->name('admin.register');
     Route::post('/login', 'login')->name('admin.login');
 
     Route::group(['middleware' => 'auth:sanctum'], function () {
@@ -36,7 +35,6 @@ Route::prefix('admin')->controller(AdminController::class)->group(function () {
 
 Route::prefix('moderator')->controller(ModeratorController::class)->group(function () {
 
-    Route::post('/register', 'register')->name('moderator.register');
     Route::post('/login', 'login')->name('moderator.login');
 
     Route::group(['middleware' => 'auth:sanctum'], function () {
