@@ -129,7 +129,7 @@ class AdminService
             $message = 'created successfully';
             $code = 201;
         } else {
-            $user = [];
+            $moderator = [];
             $message = 'invalid token';
             $code = 401;
         }
