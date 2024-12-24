@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('parent_id')->constrained('categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('name')->nullable(false);
             $table->string('image');
+            $table->string('description');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

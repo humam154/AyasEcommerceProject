@@ -144,7 +144,7 @@ class UserService
             }
             $user = User::query()->find($user['id']);
 
-            $user->update([
+            User::query()->find($user['id'])->update([
                 'first_name' => $request['first_name'] ?? $user['first_name'],
                 'last_name' => $request['last_name'] ?? $user['last_name'],
                 'phone' => $request['phone'] ?? $user['phone'],

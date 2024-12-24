@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ModeratorController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -46,3 +47,15 @@ Route::prefix('moderator')->controller(ModeratorController::class)->group(functi
         Route::post('editProfile', 'editProfile')->name('moderator.editProfile');
     });
 });
+
+Route::prefix('categories')->controller(CategoryController::class)->group(function () {
+    Route::get('/', 'get')->name('categories.get');
+    Route::post('/', 'create')->name('categories.create');
+    Route::post('/{id}', 'update')->name('categories.update');
+    Route::delete('/{id}', 'delete')->name('categories.delete');
+    Route::get('/{id}', 'getById')->name('categories.getById');
+    Route::get('details/{id}', 'getDetails')->name('categories.getDetails');
+    Route::get('/sub/{id}', 'getSubCategories')->name('categories.getSubCategories');
+    Route::get('/all', 'getAll')->name('categories.getAll');
+});
+
