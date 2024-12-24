@@ -19,6 +19,7 @@ Route::prefix('user')->controller(UserController::class)->group(function () {
     Route::group(['middleware' => 'auth:sanctum'], function () {
        Route::get('/logout', 'logout')->name('user.logout');
        Route::post('/change', 'changePassword')->name('user.change');
+       Route::post('editProfile', 'editProfile')->name('user.editProfile');
     });
 });
 
@@ -31,6 +32,7 @@ Route::prefix('admin')->controller(AdminController::class)->group(function () {
        Route::get('/logout', 'logout')->name('admin.logout');
        Route::post('/change', 'changePassword')->name('admin.change');
        Route::post('addModerator', 'addModerator')->name('admin.addModerator');
+       Route::post('editProfile', 'editProfile')->name('admin.editProfile');
     });
 });
 
@@ -41,5 +43,6 @@ Route::prefix('moderator')->controller(ModeratorController::class)->group(functi
     Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::get('/logout', 'logout')->name('moderator.logout');
         Route::post('/change', 'changePassword')->name('moderator.change');
+        Route::post('editProfile', 'editProfile')->name('moderator.editProfile');
     });
 });

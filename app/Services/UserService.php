@@ -120,6 +120,50 @@ class UserService
 
         return ['user' => $user, 'message' => $message, 'code' => $code];
     }
+
+    public function editProfile($request): array
+    {
+        $user = Auth::user();
+
+        if(!is_null($user)) {
+
+            $imagePath = ' ';
+            if ($request->hasFile('image')) {
+                if(file_exists(public_path('uploads/users/' . $user['image'])) AND !empty($user['image'])) {
+                    unlink(public_path('uploads/users/' . $user['image']));
+                }
+
+                $ext = $request->file('image')->extension();
+
+                $final_name = date('YmdHis') . '.' . $ext;
+
+                $request->file('image')->move(public_path('uploads/users'), $final_name);
+
+                $imagePath = '/uploads/users/' . $final_name;
+
+            }
+            $user = User::query()->find($user['id']);
+
+            $user->update([
+                'first_name' => $request['first_name'] ?? $user['first_name'],
+                'last_name' => $request['last_name'] ?? $user['last_name'],
+                'phone' => $request['phone'] ?? $user['phone'],
+                'gender' => $request['gender'] ?? $user['gender'],
+                'birth_date' => $request['birth_date'] ?? $user['birth_date'],
+                'image' => $imagePath,
+            ]);
+
+            $user = User::query()->find($user['id']);
+            $message = 'profile updated successfully';
+            $code = 200;
+        } else {
+            $user = [];
+            $message = 'invalid token';
+            $code = 401;
+        }
+
+        return ['user' => $user, 'message' => $message, 'code' => $code];
+    }
     private function appendRolesAndPermissions($user){
         $roles = [];
 

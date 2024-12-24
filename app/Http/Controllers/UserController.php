@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\EditProfileRequest;
 use App\Http\Requests\User\UserChangePasswordRequest;
 use App\Http\Requests\User\UserLoginRequest;
 use App\Http\Requests\User\UserRegisterRequest;
@@ -84,6 +85,24 @@ class UserController extends Controller
             }
             return Response::Success($data['user'], $data['message'], $data['code']);
         }
+        catch(Throwable $throwable) {
+            $message = $throwable->getMessage();
+            return Response::Error($data, $message);
+        }
+    }
+
+    public function editProfile(EditProfileRequest $request): JsonResponse
+    {
+        $data = [];
+
+        try {
+            $data = $this->userService->editProfile($request);
+            if($data['code'] != 200){
+                return Response::Error($data['user'] ,$data['message'], $data['code']);
+            }
+            return Response::Success($data['user'], $data['message'], $data['code']);
+        }
+
         catch(Throwable $throwable) {
             $message = $throwable->getMessage();
             return Response::Error($data, $message);
