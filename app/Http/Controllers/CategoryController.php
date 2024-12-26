@@ -107,12 +107,12 @@ class CategoryController extends Controller
         }
     }
 
-    public function getDetails($id): JsonResponse
+    public function getDetails(): JsonResponse
     {
         $data = [];
 
         try {
-            $data = $this->categoriesService->getDetails($id);
+            $data = $this->categoriesService->getDetails();
 
             if($data['code'] != 200){
                 return Response::Error($data['category'], $data['message'], $data['code']);
@@ -149,6 +149,23 @@ class CategoryController extends Controller
 
         try {
             $data = $this->categoriesService->getAll();
+            if($data['code'] != 200){
+                return Response::Error($data['category'], $data['message'], $data['code']);
+            }
+            return Response::Success($data['category'], $data['message'], $data['code']);
+        }
+        catch(Throwable $throwable){
+            $message = $throwable->getMessage();
+            return Response::Error($data, $message);
+        }
+    }
+
+    public function restore($id): JsonResponse
+    {
+        $data = [];
+
+        try {
+            $data = $this->categoriesService->restore($id);
             if($data['code'] != 200){
                 return Response::Error($data['category'], $data['message'], $data['code']);
             }

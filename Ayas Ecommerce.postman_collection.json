@@ -4741,6 +4741,1330 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "addCategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "testing",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "testing",
+									"description": "optional",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"description": "optional",
+									"type": "file",
+									"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+								},
+								{
+									"key": "parent_id",
+									"value": "1",
+									"description": "optional",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/categories/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "the parent id should exist on the same table or null",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "testing",
+											"type": "text"
+										},
+										{
+											"key": "parent_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "testing",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/categories/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										""
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:05:04 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": {\n        \"parent_id\": [\n            \"The selected parent id is invalid.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "success without parent id",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "testing",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "testing",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/categories/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:05:35 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"parent_id\": 1,\n        \"name\": \"testing\",\n        \"description\": \"testing\",\n        \"image\": \"/uploads/categories/20241226130535.png\",\n        \"updated_at\": \"2024-12-26T13:05:35.000000Z\",\n        \"created_at\": \"2024-12-26T13:05:35.000000Z\",\n        \"id\": 1\n    },\n    \"message\": \"created successfully\"\n}"
+						},
+						{
+							"name": "success with parent id",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "testing",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "testing",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										},
+										{
+											"key": "parent_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/categories/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:09:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"parent_id\": 1,\n        \"name\": \"testing\",\n        \"description\": \"testing\",\n        \"image\": \"/uploads/categories/20241226130944.png\",\n        \"updated_at\": \"2024-12-26T13:09:44.000000Z\",\n        \"created_at\": \"2024-12-26T13:09:44.000000Z\",\n        \"id\": 2\n    },\n    \"message\": \"created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getCategories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/categories/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:12:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"name\": \"testing\",\n            \"image\": \"/uploads/categories/20241226130535.png\"\n        },\n        {\n            \"name\": \"testing\",\n            \"image\": \"/uploads/categories/20241226130944.png\"\n        }\n    ],\n    \"message\": \"Success\"\n}"
+						},
+						{
+							"name": "no categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:12:40 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"No categories found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "new test",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/categories/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/categories/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:18:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"parent_id\": 1,\n        \"name\": \"testing\",\n        \"image\": \" \",\n        \"description\": \"testing\",\n        \"is_deleted\": 0,\n        \"created_at\": \"2024-12-26T13:17:19.000000Z\",\n        \"updated_at\": \"2024-12-26T13:18:05.000000Z\"\n    },\n    \"message\": \"updated successfully\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "new test",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efbd692-9f43-4260-b615-faa406790ca3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/categories/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:18:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"parent_id\": 1,\n        \"name\": \"new test\",\n        \"image\": \"/uploads/categories/20241226131838.png\",\n        \"description\": \"testing\",\n        \"is_deleted\": 0,\n        \"created_at\": \"2024-12-26T13:17:19.000000Z\",\n        \"updated_at\": \"2024-12-26T13:18:38.000000Z\"\n    },\n    \"message\": \"updated successfully\"\n}"
+						},
+						{
+							"name": "success no photo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "new test",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/categories/6",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:20:38 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 6,\n        \"parent_id\": 1,\n        \"name\": \"new test\",\n        \"image\": \"/uploads/categories/20241226132019.png\",\n        \"description\": \"testing\",\n        \"is_deleted\": 0,\n        \"created_at\": \"2024-12-26T13:20:19.000000Z\",\n        \"updated_at\": \"2024-12-26T13:20:38.000000Z\"\n    },\n    \"message\": \"updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/categories/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/6",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:23:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 6,\n        \"parent_id\": 1,\n        \"name\": \"new test\",\n        \"image\": \"/uploads/categories/20241226132019.png\",\n        \"description\": \"testing\",\n        \"is_deleted\": 1,\n        \"created_at\": \"2024-12-26T13:20:19.000000Z\",\n        \"updated_at\": \"2024-12-26T13:23:08.000000Z\"\n    },\n    \"message\": \"deleted successfully\"\n}"
+						},
+						{
+							"name": "no category found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/15",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"15"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:23:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"no category found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/categories/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "no category found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/15",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"15"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:24:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"no category found\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:25:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"name\": \"new test\",\n        \"image\": \"/uploads/categories/20241226132014.png\"\n    },\n    \"message\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getDetails",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": "gets all sub categories for all categories",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/categories/details",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								"details"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/details/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"details",
+										"1"
+									],
+									"query": [
+										{
+											"key": null,
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:25:42 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"parent_id\": 1,\n        \"name\": \"new test\",\n        \"image\": \"/uploads/categories/20241226132014.png\",\n        \"description\": \"testing\",\n        \"is_deleted\": 0,\n        \"created_at\": \"2024-12-26T13:20:14.000000Z\",\n        \"updated_at\": \"2024-12-26T13:20:23.000000Z\",\n        \"sub_categories\": [\n            {\n                \"id\": 1,\n                \"parent_id\": 1,\n                \"name\": \"new test\",\n                \"image\": \"/uploads/categories/20241226132014.png\",\n                \"description\": \"testing\",\n                \"is_deleted\": 0,\n                \"created_at\": \"2024-12-26T13:20:14.000000Z\",\n                \"updated_at\": \"2024-12-26T13:20:23.000000Z\"\n            },\n            {\n                \"id\": 2,\n                \"parent_id\": 1,\n                \"name\": \"testing\",\n                \"image\": \"/uploads/categories/20241226132016.png\",\n                \"description\": \"testing\",\n                \"is_deleted\": 0,\n                \"created_at\": \"2024-12-26T13:20:16.000000Z\",\n                \"updated_at\": \"2024-12-26T13:20:16.000000Z\"\n            },\n            {\n                \"id\": 3,\n                \"parent_id\": 1,\n                \"name\": \"testing\",\n                \"image\": \"/uploads/categories/20241226132017.png\",\n                \"description\": \"testing\",\n                \"is_deleted\": 0,\n                \"created_at\": \"2024-12-26T13:20:17.000000Z\",\n                \"updated_at\": \"2024-12-26T13:20:17.000000Z\"\n            },\n            {\n                \"id\": 4,\n                \"parent_id\": 1,\n                \"name\": \"testing\",\n                \"image\": \"/uploads/categories/20241226132017.png\",\n                \"description\": \"testing\",\n                \"is_deleted\": 0,\n                \"created_at\": \"2024-12-26T13:20:17.000000Z\",\n                \"updated_at\": \"2024-12-26T13:20:17.000000Z\"\n            },\n            {\n                \"id\": 5,\n                \"parent_id\": 1,\n                \"name\": \"testing\",\n                \"image\": \"/uploads/categories/20241226132018.png\",\n                \"description\": \"testing\",\n                \"is_deleted\": 0,\n                \"created_at\": \"2024-12-26T13:20:18.000000Z\",\n                \"updated_at\": \"2024-12-26T13:20:18.000000Z\"\n            },\n            {\n                \"id\": 6,\n                \"parent_id\": 1,\n                \"name\": \"new test\",\n                \"image\": \"/uploads/categories/20241226132019.png\",\n                \"description\": \"testing\",\n                \"is_deleted\": 1,\n                \"created_at\": \"2024-12-26T13:20:19.000000Z\",\n                \"updated_at\": \"2024-12-26T13:23:08.000000Z\"\n            }\n        ]\n    },\n    \"message\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getSub",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": "get subCategories for a category via id",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/categories/sub/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								"sub",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/sub/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"sub",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:30:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"parent_id\": 1,\n            \"name\": \"new test\",\n            \"image\": \"/uploads/categories/20241226132014.png\",\n            \"description\": \"testing\",\n            \"is_deleted\": 0,\n            \"created_at\": \"2024-12-26T13:20:14.000000Z\",\n            \"updated_at\": \"2024-12-26T13:20:23.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"parent_id\": 1,\n            \"name\": \"testing\",\n            \"image\": \"/uploads/categories/20241226132016.png\",\n            \"description\": \"testing\",\n            \"is_deleted\": 0,\n            \"created_at\": \"2024-12-26T13:20:16.000000Z\",\n            \"updated_at\": \"2024-12-26T13:20:16.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"parent_id\": 1,\n            \"name\": \"testing\",\n            \"image\": \"/uploads/categories/20241226132017.png\",\n            \"description\": \"testing\",\n            \"is_deleted\": 0,\n            \"created_at\": \"2024-12-26T13:20:17.000000Z\",\n            \"updated_at\": \"2024-12-26T13:20:17.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"parent_id\": 1,\n            \"name\": \"testing\",\n            \"image\": \"/uploads/categories/20241226132017.png\",\n            \"description\": \"testing\",\n            \"is_deleted\": 0,\n            \"created_at\": \"2024-12-26T13:20:17.000000Z\",\n            \"updated_at\": \"2024-12-26T13:20:17.000000Z\"\n        },\n        {\n            \"id\": 5,\n            \"parent_id\": 1,\n            \"name\": \"testing\",\n            \"image\": \"/uploads/categories/20241226132018.png\",\n            \"description\": \"testing\",\n            \"is_deleted\": 0,\n            \"created_at\": \"2024-12-26T13:20:18.000000Z\",\n            \"updated_at\": \"2024-12-26T13:20:18.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"parent_id\": 1,\n            \"name\": \"new test\",\n            \"image\": \"/uploads/categories/20241226132019.png\",\n            \"description\": \"testing\",\n            \"is_deleted\": 1,\n            \"created_at\": \"2024-12-26T13:20:19.000000Z\",\n            \"updated_at\": \"2024-12-26T13:23:08.000000Z\"\n        }\n    ],\n    \"message\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "restoreCategory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/categories/restore/15",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								"restore",
+								"15"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/restore/6",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"restore",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:31:40 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 6,\n        \"parent_id\": 1,\n        \"name\": \"new test\",\n        \"image\": \"/uploads/categories/20241226132019.png\",\n        \"description\": \"testing\",\n        \"is_deleted\": 0,\n        \"created_at\": \"2024-12-26T13:20:19.000000Z\",\n        \"updated_at\": \"2024-12-26T13:31:40.000000Z\"\n    },\n    \"message\": \"restored successfully\"\n}"
+						},
+						{
+							"name": "no category found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/restore/15",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"restore",
+										"15"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 26 Dec 2024 13:31:52 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"message\": \"no category found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/categories/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categories",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [

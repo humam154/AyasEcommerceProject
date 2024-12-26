@@ -21,17 +21,21 @@ class CategoriesService
                 $imagePath = '/uploads/categories/' . $final_name;
 
         }
+        if(!$request->has('parent_id')) {
+            $lastId = (Category::latest('id')->value('id')) + 1;
+            if(is_null($lastId)) {
+                $lastId = 1;
+            }
+        } else {
+            $lastId = (int) $request['parent_id'];
+        }
         $category = Category::query()->create([
+            'parent_id' => $lastId,
             'name' => $request['name'],
             'description' => $request['description'] ?? ' ',
             'image' => $imagePath,
         ]);
 
-        if(!is_null($request['parent_id'])) {
-            $category->update(['parent_id' => $request['parent_id']]);
-        } else {
-            $category->update(['parent_id' => $category['id']]);
-        }
 
         $message = 'created successfully';
         $code = 201;
@@ -41,7 +45,7 @@ class CategoriesService
 
     public function get(): array
     {
-        $categories = Category::query()->select('name', 'image')->get();
+        $categories = Category::query()->where('is_deleted', false)->select('name', 'image')->get();
         if ($categories->isEmpty()) {
             $message = 'No categories found';
             $code = 404;
@@ -59,7 +63,6 @@ class CategoriesService
 
         if(!is_null($category)) {
 
-            $imagePath = ' ';
             if ($request->hasFile('image')) {
                 if(file_exists(public_path('uploads/categories/' . $category['image'])) AND !empty($category['image'])) {
                     unlink(public_path('uploads/categories/' . $category['image']));
@@ -78,7 +81,7 @@ class CategoriesService
             Category::query()->find($id)->update([
                 'name' => $request['name'] ?? $category['name'],
                 'description' => $request['description'] ?? $category['description'],
-                'image' => $imagePath,
+                'image' => $imagePath ?? $category['image'],
             ]);
 
             $category = Category::query()->find($id);
@@ -98,11 +101,10 @@ class CategoriesService
 
         if(!is_null($category)) {
 
-            if(file_exists(public_path('uploads/categories/' . $category['image'])) AND !empty($category['image'])) {
-                unlink(public_path('uploads/categories/' . $category['image']));
-            }
-
-            $category = $category->delete();
+            Category::query()->find($id)->update([
+                'is_deleted' => true,
+            ]);
+            $category = Category::query()->find($id);
             $message = 'deleted successfully';
             $code = 200;
         } else {
@@ -126,9 +128,9 @@ class CategoriesService
 
         return ['category' => $category, 'message' => $message, 'code' => $code];
     }
-    public function getDetails($id) : array
+    public function getDetails() : array
     {
-        $category = Category::with(['subCategories'])->find($id);
+        $category = Category::with(['subCategories'])->get();
 
         if(!is_null($category)) {
             $message = 'success';
@@ -159,7 +161,7 @@ class CategoriesService
 
     public function getAll() : array
     {
-        $categories = Category::withTrashed()->select('name', 'image')->get();
+        $categories = Category::query()->select('name', 'image')->get();
         if ($categories->isEmpty()) {
             $categories = [];
             $message = 'no categories found';
@@ -170,6 +172,24 @@ class CategoriesService
         }
 
         return ['categories' => $categories, 'message' => $message, 'code' => $code];
+    }
+
+    public function restore($id) : array
+    {
+        $category = Category::query()->find($id);
+        if(!is_null($category)) {
+            Category::query()->find($id)->update([
+                'is_deleted' => false,
+            ]);
+            $category = Category::query()->find($id);
+            $message = 'restored successfully';
+            $code = 200;
+        } else {
+            $message = 'no category found';
+            $code = 404;
+        }
+
+        return ['category' => $category, 'message' => $message, 'code' => $code];
     }
 
 }
