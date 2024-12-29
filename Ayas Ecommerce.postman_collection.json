@@ -5437,7 +5437,7 @@
 					]
 				},
 				{
-					"name": "New Request",
+					"name": "deleteCategories",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -5731,44 +5731,39 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/categories/details",
+							"raw": "{{url}}/categories/details/1",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"categories",
-								"details"
+								"details",
+								"1"
 							]
 						}
 					},
 					"response": [
 						{
-							"name": "success",
+							"name": "succes on no subs",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Accept",
 										"value": "application/json",
+										"description": "gets all sub categories for all categories",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "{{url}}/categories/details/1",
+									"raw": "{{url}}/categories/details/2",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"categories",
 										"details",
-										"1"
-									],
-									"query": [
-										{
-											"key": null,
-											"value": null,
-											"disabled": true
-										}
+										"2"
 									]
 								}
 							},
@@ -5794,7 +5789,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Thu, 26 Dec 2024 13:25:42 GMT"
+									"value": "Sun, 29 Dec 2024 15:23:59 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -5806,7 +5801,127 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"parent_id\": 1,\n        \"name\": \"new test\",\n        \"image\": \"/uploads/categories/20241226132014.png\",\n        \"description\": \"testing\",\n        \"is_deleted\": 0,\n        \"created_at\": \"2024-12-26T13:20:14.000000Z\",\n        \"updated_at\": \"2024-12-26T13:20:23.000000Z\",\n        \"sub_categories\": [\n            {\n                \"id\": 1,\n                \"parent_id\": 1,\n                \"name\": \"new test\",\n                \"image\": \"/uploads/categories/20241226132014.png\",\n                \"description\": \"testing\",\n                \"is_deleted\": 0,\n                \"created_at\": \"2024-12-26T13:20:14.000000Z\",\n                \"updated_at\": \"2024-12-26T13:20:23.000000Z\"\n            },\n            {\n                \"id\": 2,\n                \"parent_id\": 1,\n                \"name\": \"testing\",\n                \"image\": \"/uploads/categories/20241226132016.png\",\n                \"description\": \"testing\",\n                \"is_deleted\": 0,\n                \"created_at\": \"2024-12-26T13:20:16.000000Z\",\n                \"updated_at\": \"2024-12-26T13:20:16.000000Z\"\n            },\n            {\n                \"id\": 3,\n                \"parent_id\": 1,\n                \"name\": \"testing\",\n                \"image\": \"/uploads/categories/20241226132017.png\",\n                \"description\": \"testing\",\n                \"is_deleted\": 0,\n                \"created_at\": \"2024-12-26T13:20:17.000000Z\",\n                \"updated_at\": \"2024-12-26T13:20:17.000000Z\"\n            },\n            {\n                \"id\": 4,\n                \"parent_id\": 1,\n                \"name\": \"testing\",\n                \"image\": \"/uploads/categories/20241226132017.png\",\n                \"description\": \"testing\",\n                \"is_deleted\": 0,\n                \"created_at\": \"2024-12-26T13:20:17.000000Z\",\n                \"updated_at\": \"2024-12-26T13:20:17.000000Z\"\n            },\n            {\n                \"id\": 5,\n                \"parent_id\": 1,\n                \"name\": \"testing\",\n                \"image\": \"/uploads/categories/20241226132018.png\",\n                \"description\": \"testing\",\n                \"is_deleted\": 0,\n                \"created_at\": \"2024-12-26T13:20:18.000000Z\",\n                \"updated_at\": \"2024-12-26T13:20:18.000000Z\"\n            },\n            {\n                \"id\": 6,\n                \"parent_id\": 1,\n                \"name\": \"new test\",\n                \"image\": \"/uploads/categories/20241226132019.png\",\n                \"description\": \"testing\",\n                \"is_deleted\": 1,\n                \"created_at\": \"2024-12-26T13:20:19.000000Z\",\n                \"updated_at\": \"2024-12-26T13:23:08.000000Z\"\n            }\n        ]\n    },\n    \"message\": \"success\"\n}"
+							"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"parent_id\": 1,\n        \"name\": \"glasses\",\n        \"image\": \"\",\n        \"description\": \"\",\n        \"is_deleted\": 0,\n        \"created_at\": null,\n        \"updated_at\": null,\n        \"parent_category\": {\n            \"id\": 1,\n            \"parent_id\": 1,\n            \"name\": \"cloths\",\n            \"image\": \"\",\n            \"description\": \"\",\n            \"is_deleted\": 0,\n            \"created_at\": null,\n            \"updated_at\": null\n        },\n        \"sub_categories\": []\n    },\n    \"message\": \"success\"\n}"
+						},
+						{
+							"name": "success sub and parent",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": "gets all sub categories for all categories",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/details/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"details",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Dec 2024 15:24:26 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"parent_id\": 1,\n        \"name\": \"cloths\",\n        \"image\": \"\",\n        \"description\": \"\",\n        \"is_deleted\": 0,\n        \"created_at\": null,\n        \"updated_at\": null,\n        \"parent_category\": {\n            \"id\": 1,\n            \"parent_id\": 1,\n            \"name\": \"cloths\",\n            \"image\": \"\",\n            \"description\": \"\",\n            \"is_deleted\": 0,\n            \"created_at\": null,\n            \"updated_at\": null\n        },\n        \"sub_categories\": [\n            {\n                \"id\": 1,\n                \"parent_id\": 1,\n                \"name\": \"cloths\",\n                \"image\": \"\",\n                \"description\": \"\",\n                \"is_deleted\": 0,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 2,\n                \"parent_id\": 1,\n                \"name\": \"glasses\",\n                \"image\": \"\",\n                \"description\": \"\",\n                \"is_deleted\": 0,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 3,\n                \"parent_id\": 1,\n                \"name\": \"shirts\",\n                \"image\": \"\",\n                \"description\": \"\",\n                \"is_deleted\": 0,\n                \"created_at\": null,\n                \"updated_at\": null\n            },\n            {\n                \"id\": 4,\n                \"parent_id\": 1,\n                \"name\": \"pants\",\n                \"image\": \"\",\n                \"description\": \"\",\n                \"is_deleted\": 0,\n                \"created_at\": null,\n                \"updated_at\": null\n            }\n        ]\n    },\n    \"message\": \"success\"\n}"
+						},
+						{
+							"name": "no categories found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": "gets all sub categories for all categories",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/categories/details/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"categories",
+										"details",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 29 Dec 2024 15:24:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"message\": \"no category found\"\n}"
 						}
 					]
 				},
