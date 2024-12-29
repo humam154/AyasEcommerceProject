@@ -107,12 +107,12 @@ class CategoryController extends Controller
         }
     }
 
-    public function getDetails(): JsonResponse
+    public function getDetails($id): JsonResponse
     {
         $data = [];
 
         try {
-            $data = $this->categoriesService->getDetails();
+            $data = $this->categoriesService->getDetails($id);
 
             if($data['code'] != 200){
                 return Response::Error($data['category'], $data['message'], $data['code']);

@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Category;
+use Illuminate\Support\Facades\Log;
 
 class CategoriesService
 {
@@ -128,9 +129,9 @@ class CategoriesService
 
         return ['category' => $category, 'message' => $message, 'code' => $code];
     }
-    public function getDetails() : array
+    public function getDetails($id) : array
     {
-        $category = Category::with(['subCategories'])->get();
+        $category = Category::with(['parentCategory', 'subCategories'])->find($id);
 
         if(!is_null($category)) {
             $message = 'success';
@@ -143,6 +144,7 @@ class CategoriesService
 
         return ['category' => $category, 'message' => $message, 'code' => $code];
     }
+
     public function getSubCategories($id) : array
     {
         $category = Category::with(['subCategories'])->find($id);
@@ -161,14 +163,14 @@ class CategoriesService
 
     public function getAll() : array
     {
-        $categories = Category::query()->select('name', 'image')->get();
-        if ($categories->isEmpty()) {
-            $categories = [];
-            $message = 'no categories found';
-            $code = 404;
-        } else {
+        $categories = Category::all();
+
+        if (!$categories->isEmpty()) {
             $message = 'success';
             $code = 200;
+        } else {
+            $message = 'no categories found';
+            $code = 404;
         }
 
         return ['categories' => $categories, 'message' => $message, 'code' => $code];

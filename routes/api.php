@@ -4,6 +4,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ModeratorController;
 use App\Http\Controllers\UserController;
+use App\Models\Category;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -54,9 +56,8 @@ Route::prefix('categories')->controller(CategoryController::class)->group(functi
     Route::post('/{id}', 'update')->name('categories.update');
     Route::delete('/{id}', 'delete')->name('categories.delete');
     Route::get('/{id}', 'getById')->name('categories.getById');
-    Route::get('/details', 'getDetails')->name('categories.getDetails');
+    Route::get('/details/{id}', 'getDetails')->name('categories.getDetails');
     Route::get('/sub/{id}', 'getSubCategories')->name('categories.getSubCategories');
     Route::get('/all', 'getAll')->name('categories.getAll');
     Route::get('/restore/{id}', 'restore')->name('categories.restore');
 });
-
